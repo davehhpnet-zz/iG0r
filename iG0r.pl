@@ -22,7 +22,6 @@ sub _start {
     $irc->plugin_add(
         'AutoJoin',
         POE::Component::IRC::Plugin::AutoJoin->new(
-#            Channels => [ '#dawilan', '#cptechs noclients' ]
              Channels => [ '#liberty', ]
         )
     );
@@ -67,7 +66,7 @@ sub _default {
     if ( $event eq 'irc_public' && $user =~/y000da*/ && $message eq 'you stink' ) {
         $irc->yield( privmsg => $channel, 'Sorry about that.  I had Mexican for lunch heh, ' . $user );
     }
-    if ( $event eq 'irc_public' && $message =~ /black|white|yellow|red|green|blue|purple|gray/i ) {
+    if ( $event eq 'irc_public' && $message =~ /(^|\s+)(black|brown|yellow|red|green|blue|purple|gray|indigo|chartrues|orange|liberal(s*))(\s+|$)/i ) {
         $irc->yield( privmsg => $channel, 'That\'s racist, ' . $user . '. http://zen.thehhp.net/albums/funny/thats_racist_wtf.gif' );
     }
     if ( $event eq 'irc_public' && $message =~ /(https?:\/\/[www.]?\w.*)/i ) {
