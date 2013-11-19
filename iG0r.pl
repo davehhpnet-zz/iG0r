@@ -22,7 +22,6 @@ sub _start {
     $irc->plugin_add(
         'AutoJoin',
         POE::Component::IRC::Plugin::AutoJoin->new(
-#            Channels => [ '#dawilan', '#cptechs noclients' ]
              Channels => [ '#liberty', ]
         )
     );
