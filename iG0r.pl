@@ -69,6 +69,9 @@ sub _default {
     if ( $event eq 'irc_public' && $message =~ /(^|\s+)(black|brown|yellow|red|green|blue|purple|gray|indigo|chartrues|orange|liberal(s*))(\s+|$)/i ) {
         $irc->yield( privmsg => $channel, 'That\'s racist, ' . $user . '. http://zen.thehhp.net/albums/funny/thats_racist_wtf.gif' );
     }
+    if ( $event eq 'irc_public' && $message =~ /(^|\s+)(build|rebuilt|built)(\s+|$)/i ) {
+        $irc->yield( privmsg => $channel, 'Pfft, ' . $user . '. http://zen.thehhp.net/albums/liberty/OBAMA-you_didnt_build_that.jpg' );
+    }
     if ( $event eq 'irc_public' && $message =~ /(https?:\/\/[www.]?\w.*)/i ) {
         print "DDDD REGEX: $1\n";
         my $title = title($1);
