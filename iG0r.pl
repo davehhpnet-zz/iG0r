@@ -17,6 +17,8 @@ sub _start {
     my $irc = POE::Component::IRC::State->spawn(
         Nick   => 'iG0r',
         Server => 'teodesian.net',
+        Port => '6697',
+        UseSSL => 'true',
     );
 
     $irc->plugin_add(
